@@ -1,0 +1,13 @@
+.container_panel{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.option_panel a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}

@@ -1,0 +1,16 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Удаление блюда{% endblock %}
+
+{% block content %}
+<div class="delete_dish">
+    <h2>Вы действительно хотите удалить блюдо {{ dish.name }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+    </form>
+    <div class="back"><a href="{% url 'dish' %}">Назад</a></div>
+</div>
+{% endblock %}

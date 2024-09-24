@@ -1,0 +1,25 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Детали блюда{% endblock %}
+
+{% block content %}
+<div class="container_detail_dish">
+    <h2>Детали блюда</h2>
+    <div class="back"><a href="{% url 'dish' %}">Назад</a></div>
+    <div>
+        <div>Name: {{ dish.name }}</div>
+        <div>
+            Photo:
+            {% if dish.photo %}
+                <img src="{{ dish.photo.url }}" alt="Фото блюда" class="dish-photo">
+            {% else %}
+                Нет фото
+            {% endif %}
+        </div>
+        <div>Price: {{ dish.price }}</div>
+        <div>Category: {{ dish.category }}</div>
+    </div>
+    <div><a href="{% url 'edit_dish' dish.id %}">Редактировать</a></div>
+</div>
+{% endblock %}

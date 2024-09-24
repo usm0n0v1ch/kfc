@@ -1,0 +1,32 @@
+
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Категории{% endblock %}
+
+{% block content %}
+
+<div class="container_category">
+    <h2>Категории</h2>
+    <div class="add_category"><a href="{% url 'create_category' %}">Добавить категорию</a></div>
+    <div class="back"><a href="{% url 'panel' %}">Назад</a></div>
+    <div class="category">
+    <div>
+        {% for category in categories %}
+            <div class="category_options">
+                <div class="category_name">{{ category.name }}</div>
+                <div><a href="{% url 'detail_category' category.id %}">Подробнее</a></div>
+                <div><a href="{% url 'edit_category' category.id %}">Редактировать</a></div>
+                <div><a href="{% url 'delete_category' category.id %}">Удалить</a></div>
+            </div>
+
+        {% empty %}
+            Категорий нет
+        {% endfor %}
+    </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

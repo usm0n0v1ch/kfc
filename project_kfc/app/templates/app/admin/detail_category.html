@@ -1,0 +1,22 @@
+
+
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Детали категории{% endblock %}
+
+
+{% block content %}
+
+<div class="container_detail_category">
+    <h2>Детали категории</h2>
+    <div class="back"><a href="{% url 'category' %}">Назад</a></div>
+    <div>
+        Name:{{ category.name }}
+    </div>
+    <div><a href="{% url 'edit_category' category.id %}">Редактировать</a></div>
+</div>
+
+
+
+{% endblock %}

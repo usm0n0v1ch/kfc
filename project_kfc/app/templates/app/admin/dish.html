@@ -1,0 +1,32 @@
+
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Блюда{% endblock %}
+
+{% block content %}
+
+<div class="container_dish">
+    <h2>Блюда</h2>
+    <div class="add_dish"><a href="{% url 'create_dish' %}">Добавить блюдо</a></div>
+    <div class="back"><a href="{% url 'panel' %}">Назад</a></div>
+    <div class="dish">
+    <div>
+        {% for dish in dishes %}
+            <div class="dish_options">
+                <div class="dish_name">{{ dish.name }}</div>
+                <div><a href="{% url 'detail_dish' dish.id %}">Подробнее</a></div>
+                <div><a href="{% url 'edit_dish' dish.id %}">Редактировать</a></div>
+                <div><a href="{% url 'delete_dish' dish.id %}">Удалить</a></div>
+            </div>
+
+        {% empty %}
+            Блюд нет
+        {% endfor %}
+    </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

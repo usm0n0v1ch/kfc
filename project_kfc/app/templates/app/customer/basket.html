@@ -1,0 +1,29 @@
+{% extends 'app/layouts/base.html' %}
+
+{% block content %}
+        <a href="{% url 'menu' %}" class="back_button">Назад в меню</a>
+<h2>Корзина</h2>
+
+<div class="basket_container">
+    {% for item in basket_items %}
+        <div class="basket_item dish_{{ item.dish.id }}">
+            <p class="dish_name">{{ item.dish.name }} - {{ item.dish_quantity }} шт. - {{ item.total_price }} сум</p>
+            <a href="{% url 'decrease_quantity_in_basket' item.id %}" class="decrease_button">-</a>
+        </div>
+    {% empty %}
+        <p>Корзина пуста.</p>
+    {% endfor %}
+
+    {% if basket_items %}
+        <div class="total_price_section">
+            <p><strong>Общая стоимость:</strong> <span class="total_price">{{ total_price }} сум</span></p>
+        </div>
+        <div class="basket_buttons">
+            <a href="{% url 'create_order' %}" class="order_button">Заказать</a>
+
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+

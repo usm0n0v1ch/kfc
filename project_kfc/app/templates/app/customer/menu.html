@@ -1,0 +1,36 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container_menu">
+    <h2 class="menu_title">Menu</h2>
+    <div class="basket_container">
+        <div class="basket_btn"><a href="{% url 'basket' %}">Корзина</a></div>
+    </div>
+    <div class="menu_category_dish">
+        {% for category in categories %}
+            <div class="menu_dish_cards">
+                <h3 class="menu_category_name">{{ category.name }}</h3>
+                <div class="menu_dish_card">
+                    <div class="menu_dish_card_inner">
+                        {% for dish in category.dish_set.all %}
+                            <div class="menu_dish_item">
+                                <div class="menu_dish_name">{{ dish.name }}</div>
+                                <img class="menu_dish_card_image" src="{{ dish.photo.url }}" alt="{{ dish.name }}">
+                                <div class="menu_dish_price">{{ dish.price }} сум</div>
+                                <div class="add_to_basket">
+                                    <form method="POST" action="{% url 'add_to_basket' dish.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="add_to_basket_btn">Добавить в корзину</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>Нет блюд в этой категории.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

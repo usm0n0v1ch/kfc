@@ -1,0 +1,14 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Создание блюда{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Сохранить">
+</form>
+{% endblock %}

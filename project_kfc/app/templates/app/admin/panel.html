@@ -1,0 +1,28 @@
+{% extends 'app/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Панель управления{% endblock %}
+
+
+
+{% block content %}
+    <div class="container_panel">
+        <div class="option_panel">
+            <a href="{% url 'category' %}">
+                Категории
+            </a>
+        </div>
+        <div class="option_panel">
+            <a href="{% url 'dish' %}">
+                Блюда
+            </a>
+        </div>
+        <div class="option_panel">
+            <a href="{% url 'user' %}">
+                Пользователи
+            </a>
+
+        </div>
+
+    </div>
+{% endblock %}

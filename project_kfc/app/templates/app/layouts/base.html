@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'app/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/category.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/dish.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/user.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/edit_category.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/edit_dish.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/detail_category.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/detail_dish.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/basket.css' %}">
+</head>
+<body>
+
+{% include 'app/layouts/header.html' %}
+{% block content %}{% endblock %}
+</body>
+</html>

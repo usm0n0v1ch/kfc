@@ -1,0 +1,44 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Пользователи и их заказы{% endblock %}
+
+{% block content %}
+
+<div class="container_user_orders">
+    <h2>Пользователи</h2>
+    <div class="back"><a href="{% url 'panel' %}">Назад</a></div>
+
+    <div class="user_orders">
+        {% for user in users %}
+            <div class="user_block">
+                <h3 class="user_name">{{ user.username }}</h3>
+
+                <div class="orders">
+                    <h4>Заказы:</h4>
+                    <ul>
+                        {% for order in orders %}
+                            {% if order.user == user %}
+                                <li>
+                                    <strong>Заказ № {{ order.id }}:</strong>
+                                    <ul>
+                                        {% for order_element in order.orderelement_set.all %}
+                                            <li>{{ order_element.dish.name }} x {{ order_element.dish_quantity }}</li>
+                                        {% empty %}
+                                            <li>Нет элементов в заказе</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% empty %}
+                            <li>Нет заказов</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

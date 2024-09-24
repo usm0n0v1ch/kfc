@@ -1,0 +1,17 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+
+.back{
+    margin-top: 20px;
+}
+.back a{
+    text-decoration: none;
+    color:white;
+    background: red;
+    padding:10px;
+    font-size: 200%;
+    border-radius: 20px;
+}

@@ -1,0 +1,41 @@
+
+
+.container_category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.add_category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color:white;
+    background: green;
+    padding:10px;
+    font-size: 200%;
+    border-radius: 20px;
+}
+
+
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.category_options{
+    display: flex;
+    gap: 10px;
+}
+.category_name{
+    font-weight: bold;
+}
+
+
